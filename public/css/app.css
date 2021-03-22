@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300;400&display=swap");
+
+:root {
+  --background-color: rgba(54, 1, 1, 0.089);
+  --button-color: #6441a4;
+  --button-color-disabled: #392e5c;
+  --progress: #6441a4;
+  --progress-before: #e0e0e0;
+}
+
+body {
+  background-color: var(--background-color);
+  font-family: "Roboto", sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  overflow: hidden;
+  margin: 0;
+}
+
+.container {
+  text-align: center;
+}
+
+.progress-container {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-bottom: 30px;
+  max-width: 100%;
+  width: 350px;
+}
+
+.progress-container::before {
+  content: "";
+  background-color: var(--progress-before);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 100%;
+  z-index: -1;
+  transform: translateY(-50%);
+}
+
+.progress {
+  background-color: var(--progress);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  height: 4px;
+  width: 0%;
+  z-index: -1;
+  transform: translateY(-50%);
+  transform: 0.4s ease;
+  transition: all 0.4s ease 0s;
+}
+
+.circle {
+  background-color: #fff;
+  color: #999;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 3px solid var(--progress-before);
+  transition: 0.4s ease;
+}
+
+.circle.active {
+  border-color: var(--progress);
+}
+
+.btn {
+  background-color: var(--button-color);
+  color: #fff;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+  font-family: "Roboto", sans-serif;
+  padding: 8px 60px;
+  margin: 5px;
+  font-size: 14px;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.6s ease 0s;
+}
+
+.btn:active {
+  transform: scale(0.98);
+}
+
+.btn:focus {
+  outline: 0;
+}
+
+.btn:disabled {
+  background-color: var(--button-color-disabled);
+  cursor: not-allowed;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
